@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "difficulty": "easy",
+    "question": "How many orders are there in total?",
+    "gold_sql": "SELECT COUNT(*) FROM data"
+  },
+  {
+    "id": 2,
+    "difficulty": "easy",
+    "question": "What is the total revenue?",
+    "gold_sql": "SELECT ROUND(SUM(revenue),2) FROM data"
+  },
+  {
+    "id": 3,
+    "difficulty": "easy",
+    "question": "What is the average customer age?",
+    "gold_sql": "SELECT ROUND(AVG(customer_age),2) FROM data"
+  },
+  {
+    "id": 4,
+    "difficulty": "easy",
+    "question": "How many distinct products are sold?",
+    "gold_sql": "SELECT COUNT(DISTINCT product) FROM data"
+  },
+  {
+    "id": 5,
+    "difficulty": "easy",
+    "question": "What is the maximum discount percentage given?",
+    "gold_sql": "SELECT MAX(discount_pct) FROM data"
+  },
+  {
+    "id": 6,
+    "difficulty": "medium",
+    "question": "What are the top 3 products by total revenue?",
+    "gold_sql": "SELECT product, ROUND(SUM(revenue),2) FROM data GROUP BY product ORDER BY SUM(revenue) DESC LIMIT 3"
+  },
+  {
+    "id": 7,
+    "difficulty": "medium",
+    "question": "Total revenue by region?",
+    "gold_sql": "SELECT region, ROUND(SUM(revenue),2) FROM data GROUP BY region"
+  },
+  {
+    "id": 8,
+    "difficulty": "medium",
+    "question": "Average quantity per order for each channel?",
+    "gold_sql": "SELECT channel, ROUND(AVG(quantity),2) FROM data GROUP BY channel"
+  },
+  {
+    "id": 9,
+    "difficulty": "medium",
+    "question": "How many orders were returned?",
+    "gold_sql": "SELECT COUNT(*) FROM data WHERE returned = 'Yes'"
+  },
+  {
+    "id": 10,
+    "difficulty": "medium",
+    "question": "Which region has the most orders?",
+    "gold_sql": "SELECT region FROM data GROUP BY region ORDER BY COUNT(*) DESC LIMIT 1"
+  },
+  {
+    "id": 11,
+    "difficulty": "medium",
+    "question": "Total revenue in 2024?",
+    "gold_sql": "SELECT ROUND(SUM(revenue),2) FROM data WHERE YEAR(order_date) = 2024"
+  },
+  {
+    "id": 12,
+    "difficulty": "hard",
+    "question": "Return rate (percentage of returned orders) per product?",
+    "gold_sql": "SELECT product, ROUND(100.0*SUM(CASE WHEN returned='Yes' THEN 1 ELSE 0 END)/COUNT(*),2) FROM data GROUP BY product"
+  },
+  {
+    "id": 13,
+    "difficulty": "hard",
+    "question": "Monthly revenue for 2024, ordered by month?",
+    "gold_sql": "SELECT MONTH(order_date), ROUND(SUM(revenue),2) FROM data WHERE YEAR(order_date)=2024 GROUP BY 1 ORDER BY 1"
+  },
+  {
+    "id": 14,
+    "difficulty": "hard",
+    "question": "Which product has the highest average discount, and what is it?",
+    "gold_sql": "SELECT product, ROUND(AVG(discount_pct),2) FROM data GROUP BY product ORDER BY AVG(discount_pct) DESC LIMIT 1"
+  },
+  {
+    "id": 15,
+    "difficulty": "hard",
+    "question": "Which region-channel combination generates the most revenue?",
+    "gold_sql": "SELECT region, channel FROM data GROUP BY region, channel ORDER BY SUM(revenue) DESC LIMIT 1"
+  }
+]
