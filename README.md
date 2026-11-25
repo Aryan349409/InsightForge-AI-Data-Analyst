@@ -18,7 +18,6 @@ An AI-powered, end-to-end data analytics platform that integrates automated data
 
 ![Status](https://img.shields.io/badge/Status-Developed-success?style=flat-square)
 ![AI](https://img.shields.io/badge/AI-LLM%20Powered-blueviolet?style=flat-square)
-![Academic Session](https://img.shields.io/badge/Academic%20Session-2026--2027-blue?style=flat-square)
 
 **Explore • Clean • Analyze • Visualize • Predict • Report**
 
